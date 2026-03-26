@@ -1,0 +1,6 @@
+# Emacs autosave files
+*~
+
+# Cabal files
+dist-newstyle/
+dist/
