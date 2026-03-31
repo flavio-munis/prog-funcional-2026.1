@@ -181,8 +181,8 @@ allDivisors ps = getDivisors [] (unpairFactorsList ps) 1
     unpairFactorsList ((p,e):ps') =
       [[power | x <- [0..e], let power = p ^ x]] ++ unpairFactorsList ps' 
 
-    getDivisors [] [] _            = []
-    getDivisors [] (ms':mss) d     = getDivisors ms' mss d
+    getDivisors []     []        _ = []
+    getDivisors []     (ms':mss) d = getDivisors ms' mss d
     getDivisors (m:[]) (ms':mss) d = getDivisors ms' mss (d*m)
-    getDivisors (m:ms) [] d        = m*d:getDivisors ms [] d 
+    getDivisors (m:ms) []        d = m*d:getDivisors ms [] d 
     getDivisors (m:ms) (ms':mss) d = sortedMerge (getDivisors ms (ms':mss) d) (getDivisors ms' mss (m*d))
